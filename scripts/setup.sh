@@ -4,7 +4,24 @@
 # REF : http://prakhar.me/docker-curriculum/
 
 brew update
-brew install docker boot2docker docker-machine docker-compose busybox
-brew cask install kitematic --appdir=~/Applications
 
-mkdir -p ~/.docker/{machine,compose}
+
+## juicy bits
+brew install docker boot2docker           \
+  docker-machine docker-machine-parallels \
+  docker-compose docker-swarm
+
+
+## ancillaries
+brew cask install boot2docker-status  --appdir=~/Applications
+brew cask install kitematic           --appdir=~/Applications
+
+
+## Migrate boot2docker to docker-machine
+docker-machine create -d virtualbox --virtualbox-import-boot2docker-vm boot2docker-vm docker-vm
+
+eval "$(docker-machine env default)"
+
+## sanity check
+brew prune
+brew doctor
