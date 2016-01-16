@@ -1,4 +1,5 @@
 #!/bin/bash
+# REQ : OSX /usr/bin/open
 
 
 CID='prakhar1989/static-site'
