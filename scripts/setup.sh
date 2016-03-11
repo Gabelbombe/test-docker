@@ -19,10 +19,11 @@ brew cask install kitematic           --appdir=~/Applications
 
 ## Migrate boot2docker to docker-machine
 docker-machine create -d virtualbox --virtualbox-import-boot2docker-vm boot2docker-vm docker-vm
+docker-machine create -d virtualbox default # create default box jic...
 
 
 ## Add daemon runner
-eval "$(docker-machine env default)"
+eval "$(docker-machine env default)" # echo 'eval "$(docker-machine env default)"' >> ~/.bashrc
 
 
 ## sanity check
